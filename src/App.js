@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import questions from './questions'
 import './App.css';
+import WelcomeScreen from './components/WelcomeScreen'
 
-function App() {
+const App = () => {
+
+  const [isInProgress, setIsInprogress] = useState(false)
+  const [hasEnded, setHasEnded] = useState(false)
+  
+  const [questionIndex, setQuestionIndex] = useState(0)
+  const [totalTrue, setTotalTrue] = useState(0)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      { 
+        (!isInProgress) ? 
+          <WelcomeScreen amount={questions.length} /> 
+          : 
+          null 
+      }
     </div>
   );
 }
