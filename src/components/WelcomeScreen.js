@@ -1,7 +1,7 @@
 import React from 'react'
 import quiz_img from '../images/quiz.jpg'
 
-const WelcomeScreen = ({amount}) => {
+const WelcomeScreen = ({amount, startQuiz}) => {
     return (
         <div className = "card p-3 m-5" style = {{width: "60rem"}}>
             <div className = "row">
@@ -15,7 +15,12 @@ const WelcomeScreen = ({amount}) => {
                             <small className="text-muted" >{amount} questions total.</small>
                         </h3>
                         <h5 className = "card-text">If you are ready, press START.</h5>
-                        <button className = "btn btn-primary">START</button>
+                        <button 
+                            className = "btn btn-primary"
+                            onClick = {() => startQuiz()}
+                        >
+                            START
+                        </button>
                     </div>
                 </div>
             </div>
